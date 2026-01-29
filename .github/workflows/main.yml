@@ -48,11 +48,11 @@ jobs:
       with:
         # The name of the user that will be displayed as the author of the commit
         # Default: author of the commit that triggered the run
-        author_name: "bskrtich-ci"
+        author_name: "github-actions[bot]"
 
         # The email of the user that will be displayed as the author of the commit
         # Default: author of the commit that triggered the run
-        author_email: bskrtich-ci@bearded.io
+        author_email: 41898282+github-actions[bot]@users.noreply.github.com
 
         # Whether to use the --force option on `git add`, in order to bypass eventual gitignores
         # Default: false
@@ -71,15 +71,4 @@ jobs:
       env:
         CI_REGISTRY_IMAGE: ghcr.io/HakkaYoro/terraria
 
-    - name: Build and Push Images to docker hub
-      run: ./bin/03-build-images push
-      env:
-        CI_REGISTRY_IMAGE: beardedio/terraria
 
-    - name: Docker Hub Description
-      uses: peter-evans/dockerhub-description@v3
-      with:
-        username: ${{ secrets.DOCKER_HUB_USER }}
-        password: ${{ secrets.DOCKER_HUB_PASS }}
-        repository: beardedio/terraria
-        short-description: "Docker images to run a Terraria Server. Images with TShock Server or Vanilla Server are available."
