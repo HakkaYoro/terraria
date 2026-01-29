@@ -67,6 +67,6 @@ jobs:
     - name: Build and Push Images to ghcr.io
       run: ./bin/03-build-images push
       env:
-        CI_REGISTRY_IMAGE: ghcr.io/HakkaYoro/terraria
+        CI_REGISTRY_IMAGE: ghcr.io/hakkayoro/terraria
 
 
